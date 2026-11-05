@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>鉴黄师官方入口-鉴黄师官方入口登录_鉴黄师官方入口电脑版下载</title>
+<meta name="description" content="鉴黄师官方入口页面导航：说明鉴黄师官方入口的访问方式、电脑版与手机版使用说明、登录流程与常见问题，帮助审核岗位人员快速找到鉴黄师官方入口并了解工作台功能。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2314212e'/%3E%3Cpath d='M32 12l14 6v12c0 10-6 18-14 22-8-4-14-12-14-22V18z' fill='none' stroke='%2338d6a8' stroke-width='4'/%3E%3Cpath d='M25 32l5 5 10-11' fill='none' stroke='%23ffd166' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#14212e;
+  --ink-2:#1d2f40;
+  --paper:#f6f8f7;
+  --card:#ffffff;
+  --line:#dfe6e3;
+  --mint:#38d6a8;
+  --mint-deep:#149b78;
+  --amber:#ffd166;
+  --text:#22313d;
+  --muted:#5b6b74;
+  --radius:16px;
+  --shadow:0 10px 30px rgba(20,33,46,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--text);
+  line-height:1.75;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--mint-deep);text-decoration:none}
+a:hover{text-decoration:underline}
+img,svg{display:block;max-width:100%}
+.wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 20px}
+
+/* ---------- header ---------- */
+header.site{
+  position:sticky;top:0;z-index:50;
+  background:rgba(20,33,46,.94);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;height:66px}
+.logo{display:flex;align-items:center;gap:10px;color:#fff;font-weight:700;letter-spacing:.5px;font-size:16px}
+.logo .mark{width:34px;height:34px;flex:none}
+.logo span{white-space:nowrap}
+nav.main{display:flex;gap:22px;align-items:center}
+nav.main a{color:#c9d6d2;font-size:14.5px}
+nav.main a:hover{color:var(--mint);text-decoration:none}
+.nav-cta{
+  background:var(--mint);color:#0d241c !important;font-weight:700;
+  padding:8px 16px;border-radius:999px;font-size:14px;
+}
+.nav-cta:hover{background:#5ee6bf;text-decoration:none}
+.burger{display:none;background:none;border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:10px;padding:6px 10px;font-size:15px}
+
+/* ---------- hero ---------- */
+.hero{
+  background:
+    radial-gradient(900px 380px at 82% -10%,rgba(56,214,168,.22),transparent 62%),
+    radial-gradient(600px 300px at 5% 110%,rgba(255,209,102,.12),transparent 60%),
+    var(--ink);
+  color:#eaf3f0;
+  padding:58px 0 64px;
+}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:13px;letter-spacing:1px;color:var(--mint);
+  border:1px solid rgba(56,214,168,.4);border-radius:999px;
+  padding:4px 12px;margin-bottom:18px;
+}
+.eyebrow i{width:7px;height:7px;border-radius:50%;background:var(--mint);display:inline-block}
+h1{
+  font-size:clamp(28px,4.4vw,44px);
+  line-height:1.28;font-weight:800;letter-spacing:.5px;color:#fff;
+}
+.hero p.lead{margin-top:16px;color:#b9cbc6;font-size:15.5px;max-width:36em}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 22px;border-radius:12px;font-weight:700;font-size:15px;
+  border:1px solid transparent;cursor:pointer;transition:.18s;
+}
+.btn-primary{background:var(--mint);color:#0d241c}
+.btn-primary:hover{background:#5ee6bf;text-decoration:none;transform:translateY(-1px)}
+.btn-ghost{border-color:rgba(255,255,255,.28);color:#eaf3f0;background:transparent}
+.btn-ghost:hover{border-color:var(--mint);color:var(--mint);text-decoration:none}
+.btn[aria-disabled="true"]{opacity:.55;pointer-events:none}
+.hero-note{margin-top:18px;font-size:13px;color:#8fa5a0}
+
+.hero-art{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:22px;padding:20px;
+}
+.hero-art .cap{font-size:12.5px;color:#9db2ad;letter-spacing:.5px;margin-bottom:12px}
+.screen{background:#0e1a24;border:1px solid rgba(255,255,255,.09);border-radius:14px;padding:14px}
+.screen-row{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;background:rgba(255,255,255,.03);margin-bottom:8px}
+.screen-row:last-child{margin-bottom:0}
+.dot{width:10px;height:10px;border-radius:50%;flex:none}
+.dot.ok{background:var(--mint)}
+.dot.warn{background:var(--amber)}
+.dot.bad{background:#ff6b6b}
+.screen-row span{font-size:13px;color:#c6d5d1}
+.screen-row em{margin-left:auto;font-style:normal;font-size:12px;color:#7f948f}
+
+/* ---------- sections ---------- */
+section{padding:56px 0}
+section.alt{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sec-head{max-width:44em;margin-bottom:30px}
+.sec-head .tag{font-size:13px;color:var(--mint-deep);font-weight:700;letter-spacing:1.5px}
+h2{font-size:clamp(21px,2.6vw,27px);line-height:1.4;margin-top:6px;color:var(--ink);font-weight:800}
+.sec-head p{margin-top:10px;color:var(--muted);font-size:15px}
+
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:24px 22px;box-shadow:var(--shadow);
+}
+.card .ico{width:42px;height:42px;border-radius:12px;background:rgba(56,214,168,.14);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.card h3{font-size:17px;color:var(--ink);margin-bottom:8px;font-weight:700}
+.card p{font-size:14.5px;color:var(--muted)}
+
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:st}
+.step{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px 20px;position:relative}
+.step::before{
+  counter-increment:st;content:counter(st,decimal-leading-zero);
+  font-size:13px;font-weight:800;color:var(--mint-deep);letter-spacing:1px;
+}
+.step h3{font-size:16px;margin:8px 0 8px;color:var(--ink)}
+.step p{font-size:14px;color:var(--muted)}
+
+.two{display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:start}
+.prose p{margin-bottom:14px;font-size:15.5px;color:var(--text)}
+.prose p:last-child{margin-bottom:0}
+.prose strong{color:var(--ink)}
+
+.panel{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}
+.panel h3{font-size:16.5px;color:var(--ink);margin-bottom:14px}
+.checklist{list-style:none}
+.checklist li{display:flex;gap:10px;font-size:14.5px;color:var(--muted);padding:9px 0;border-bottom:1px dashed var(--line)}
+.checklist li:last-child{border-bottom:none}
+.checklist svg{flex:none;margin-top:4px}
+
+/* faq */
+.faq{display:grid;gap:14px}
+details.q{
+  background:#fff;border:1px solid var(--line);border-radius:14px;padding:0 20px;
+}
+details.q summary{
+  cursor:pointer;padding:18px 0;font-weight:700;font-size:15.5px;color:var(--ink);
+  list-style:none;display:flex;justify-content:space-between;gap:14px;align-items:center;
+}
+details.q summary::-webkit-details-marker{display:none}
+details.q summary::after{content:"＋";color:var(--mint-deep);font-weight:800;flex:none}
+details.q[open] summary::after{content:"－"}
+details.q .ans{padding:0 0 18px;font-size:14.5px;color:var(--muted);border-top:1px dashed var(--line);padding-top:14px}
+
+/* cta band */
+.cta-band{
+  background:linear-gradient(120deg,#14212e,#1d3a33);
+  border-radius:22px;padding:40px 36px;color:#eaf3f0;
+  display:flex;gap:28px;align-items:center;justify-content:space-between;flex-wrap:wrap;
+}
+.cta-band h2{color:#fff;margin:0}
+.cta-band p{color:#a9bdb8;font-size:14.5px;margin-top:8px;max-width:34em}
+
+/* footer */
+footer.site{background:var(--ink);color:#9fb2ad;padding:40px 0 30px;font-size:13.5px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px;margin-bottom:26px}
+footer.site h4{color:#eaf3f0;font-size:14.5px;margin-bottom:12px;font-weight:700}
+footer.site a{color:#9fb2ad}
+footer.site a:hover{color:var(--mint)}
+.foot-links{display:grid;gap:8px}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:18px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;color:#7f948f;font-size:12.5px}
+
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:30px}
+  .cards{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .two{grid-template-columns:1fr;gap:26px}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  nav.main{display:none}
+  nav.main.open{
+    display:flex;position:absolute;top:66px;left:0;right:0;
+    flex-direction:column;align-items:stretch;gap:0;
+    background:#14212e;border-bottom:1px solid rgba(255,255,255,.1);padding:8px 20px 16px;
+  }
+  nav.main.open a{padding:11px 0;border-bottom:1px solid rgba(255,255,255,.07);font-size:15px}
+  nav.main.open .nav-cta{margin-top:12px;text-align:center;border-bottom:none}
+  .burger{display:block}
+  .hero{padding:40px 0 48px}
+  .cards{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  section{padding:44px 0}
+  .cta-band{padding:30px 22px}
+  .foot-grid{grid-template-columns:1fr}
+  .logo{font-size:14.5px}
+  body{font-size:15.5px}
+}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap bar">
+    <a class="logo" href="#top" aria-label="鉴黄师官方入口 首页">
+      <svg class="mark" viewBox="0 0 64 64" role="img" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#0e1a24"/>
+        <path d="M32 12l14 6v12c0 10-6 18-14 22-8-4-14-12-14-22V18z" fill="none" stroke="#38d6a8" stroke-width="4"/>
+        <path d="M25 32l5 5 10-11" fill="none" stroke="#ffd166" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>鉴黄师官方入口</span>
+    </a>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="mainnav">菜单</button>
+    <nav class="main" id="mainnav" aria-label="主导航">
+      <a href="#entry">访问入口</a>
+      <a href="#guide">使用流程</a>
+      <a href="#work">工作台说明</a>
+      <a href="#faq">常见问题</a>
+      <a class="nav-cta" href="#entry">进入工作台</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow"><i></i>内容审核岗位导航</div>
+        <h1>鉴黄师官方入口</h1>
+        <p class="lead">这里集中说明鉴黄师官方入口的访问方式、登录流程与工作台功能范围。无论你是首次了解审核岗位，还是需要从电脑端、手机端进入鉴黄师官方入口，都可以按本文的步骤逐项核对，减少在非官方渠道反复查找的时间。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#entry">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            查看入口说明
+          </a>
+          <a class="btn btn-ghost" href="#guide">了解使用流程</a>
+        </div>
+        <p class="hero-note">提示：本文为入口与流程说明页，具体账号开通与权限以所属平台的通知为准。</p>
+      </div>
+
+      <div class="hero-art" aria-hidden="true">
+        <div class="cap">审核工作台 · 示意界面</div>
+        <div class="screen">
+          <div class="screen-row"><span class="dot ok"></span><span>待审核队列</span><em>已连接</em></div>
+          <div class="screen-row"><span class="dot warn"></span><span>疑似违规样本</span><em>复核中</em></div>
+          <div class="screen-row"><span class="dot bad"></span><span>高危内容拦截</span><em>已标记</em></div>
+          <div class="screen-row"><span class="dot ok"></span><span>审核记录归档</span><em>今日</em></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ENTRY -->
+  <section id="entry">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="tag">访问入口</div>
+        <h2>如何找到并使用鉴黄师官方入口</h2>
+        <p>鉴黄师官方入口是内容审核人员进入工作台的统一通道。下面三块内容分别对应入口辨别、账号准备与设备适配，建议按顺序阅读。</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#149b78" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
+          </div>
+          <h3>辨别官方渠道</h3>
+          <p>请以所属平台公布的鉴黄师官方入口地址为准，不要通过来源不明的短链、群聊转发页面登录。进入前先核对域名与页面标识，避免在仿冒页填写账号信息。</p>
+        </article>
+        <article class="card">
+          <div class="ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#149b78" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 12h8M12 8v8"/></svg>
+          </div>
+          <h3>账号与权限</h3>
+          <p>鉴黄师官方入口通常需要已开通审核权限的账号登录。若提示无权限，应联系所在团队的管理员确认岗位与权限是否已配置，而非重复注册。</p>
+        </article>
+        <article class="card">
+          <div class="ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#149b78" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <h3>设备适配</h3>
+          <p>电脑端适合批量处理与复核，手机端适合随时查看待办。同一账号在两端使用鉴黄师官方入口登录时，注意保持网络稳定，避免审核记录提交中断。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUIDE -->
+  <section class="alt" id="guide">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="tag">使用流程</div>
+        <h2>从打开鉴黄师官方入口到完成一次审核</h2>
+        <p>流程分为四步，每一步都有对应的核对点，便于新成员按图操作，也方便老成员自查遗漏环节。</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <h3>打开入口</h3>
+          <p>在浏览器输入鉴黄师官方入口地址，确认页面加载正常、标识清晰，再进入登录界面。</p>
+        </div>
+        <div class="step">
+          <h3>登录验证</h3>
+          <p>使用已开通权限的账号登录，按提示完成身份验证。首次登录建议修改初始密码。</p>
+        </div>
+        <div class="step">
+          <h3>进入队列</h3>
+          <p>在鉴黄师官方入口工作台中选择待审核队列，按任务分配顺序逐条处理，先看全量信息再判断。</p>
+        </div>
+        <div class="step">
+          <h3>提交归档</h3>
+          <p>给出判定结果并填写必要说明，提交后确认记录已归档，必要时回到列表核对状态。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work">
+    <div class="wrap two">
+      <div class="prose">
+        <div class="sec-head" style="margin-bottom:18px">
+          <div class="tag">工作台说明</div>
+          <h2>鉴黄师官方入口里的常见功能区</h2>
+        </div>
+        <p>进入<strong>鉴黄师官方入口</strong>后，工作台一般围绕“待处理—判定—归档”组织信息。待审核队列按任务分配展示样本，审核区呈现图片或文本信息与判定选项，记录区保存历史结果，便于后续追溯。</p>
+        <p>使用鉴黄师官方入口时，建议先通读样本全部信息再作判断，避免仅凭缩略图下结论。对边界样本，应依据平台公布的审核标准处理，必要时标记为复核，交由更高权限人员确认。</p>
+        <p>审核记录是工作质量的重要依据。每次通过鉴黄师官方入口提交结果后，都应确认状态已更新；若出现提交失败，先检查网络与登录状态，再重新提交，避免同一任务重复处理。</p>
+        <p>对于新加入的成员，可先用测试样本熟悉鉴黄师官方入口的操作节奏，再进入真实队列。熟悉判定口径与快捷键后，处理效率会明显提升，但准确率始终优先于速度。</p>
+      </div>
+      <aside class="panel">
+        <h3>登录前后核对清单</h3>
+        <ul class="checklist">
+          <li>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#149b78" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg>
+            确认地址来自官方公布渠道
+          </li>
+          <li>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#149b78" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg>
+            账号具备审核岗位权限
+          </li>
+          <li>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#149b78" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg>
+            网络稳定，页面加载完整
+          </li>
+          <li>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#149b78" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg>
+            已阅读当前审核标准说明
+          </li>
+          <li>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#149b78" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg>
+            提交后确认记录已归档
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="alt" id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="tag">常见问题</div>
+        <h2>关于鉴黄师官方入口的高频疑问</h2>
+        <p>以下问题围绕入口访问、登录失败与设备使用展开，回答保持通用表述，具体规则以所属平台公告为准。</p>
+      </div>
+      <div class="faq">
+        <details class="q" open>
+          <summary>鉴黄师官方入口打不开怎么办？</summary>
+          <div class="ans">先确认网络连接正常，再核对地址是否与官方公布的一致。若仍无法访问，可尝试更换浏览器或稍后重试，避免在来源不明的镜像页面输入账号。</div>
+        </details>
+        <details class="q">
+          <summary>登录鉴黄师官方入口提示无权限？</summary>
+          <div class="ans">通常表示账号尚未开通审核权限，或岗位配置未生效。请联系所在团队管理员核实权限状态，不要重复注册账号。</div>
+        </details>
+        <details class="q">
+          <summary>手机可以使用鉴黄师官方入口吗？</summary>
+          <div class="ans">可以，手机端适合查看待办与轻量处理。批量复核等操作建议在电脑端完成，以获得更完整的显示区域与操作空间。</div>
+        </details>
+        <details class="q">
+          <summary>审核记录提交后可以修改吗？</summary>
+          <div class="ans">是否可修改取决于平台的记录规则。若发现判定有误，应及时联系管理员说明情况，按流程处理，不要自行重复提交。</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section>
+    <div class="wrap">
+      <div class="cta-band">
+        <div>
+          <h2>准备好进入鉴黄师官方入口了吗</h2>
+          <p>先核对账号权限与官方地址，再按使用流程逐步操作。下载入口暂未开放，可先阅读本页的流程说明。</p>
+        </div>
+        <div class="hero-actions" style="margin-top:0">
+          <a class="btn btn-primary" href="#entry">返回入口说明</a>
+          <a class="btn btn-ghost" href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1">下载</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>鉴黄师官方入口</h4>
+        <p>面向内容审核岗位的入口与流程说明页，帮助访问者理解鉴黄师官方入口的访问方式、登录步骤与工作台功能范围。</p>
+      </div>
+      <div>
+        <h4>页面导航</h4>
+        <div class="foot-links">
+          <a href="#entry">访问入口</a>
+          <a href="#guide">使用流程</a>
+          <a href="#work">工作台说明</a>
+          <a href="#faq">常见问题</a>
+        </div>
+      </div>
+      <div>
+        <h4>阅读提示</h4>
+        <div class="foot-links">
+          <a href="#top">回到顶部</a>
+          <a href="#guide">新手流程</a>
+          <a href="#work">核对清单</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 鉴黄师官方入口 · 入口与流程说明</span>
+      <span>具体账号开通、权限与审核标准以所属平台通知为准</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn=document.getElementById('burger');
+  var nav=document.getElementById('mainnav');
+  if(btn&&nav){
+    btn.addEventListener('click',function(){
+      var open=nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded',open?'true':'false');
+    });
+    nav.addEventListener('click',function(e){
+      if(e.target.tagName==='A'&&window.innerWidth<=640){
+        nav.classList.remove('open');
+        btn.setAttribute('aria-expanded','false');
+      }
+    });
+  }
+  var dl=document.querySelector('[data-download-placeholder]');
+  if(dl){dl.addEventListener('click',function(e){e.preventDefault();});}
+})();
+</script>
+</body>
+</html>
