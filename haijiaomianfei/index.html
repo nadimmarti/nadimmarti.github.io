@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海角免费-海角免费影视资源在线观看_海角免费高清视频免费看</title>
+<meta name="description" content="海角免费是一个面向视频爱好者的资源导航与观看入口页面，汇集海角免费热门影视、高清视频与分类浏览方式，帮助你快速找到想看的内容与使用路径。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1f2a'/%3E%3Cpath d='M14 40c8-14 28-14 36 0' stroke='%2334d1c6' stroke-width='5' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='24' r='6' fill='%23ffd166'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#0b1f2a;
+  --ink-soft:#3c5563;
+  --teal:#0f8f86;
+  --teal-bright:#34d1c6;
+  --sand:#f6f1e7;
+  --line:#dcd6c9;
+  --card:#ffffff;
+  --sun:#ffd166;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif;
+  color:var(--ink);
+  background:var(--sand);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+.wrap{width:min(1120px,92vw);margin:0 auto}
+
+/* 页头 */
+header.site{
+  background:var(--ink);
+  color:#eef6f5;
+  position:sticky;top:0;z-index:50;
+  border-bottom:2px solid var(--teal-bright);
+}
+.header-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:18px;padding:14px 0;flex-wrap:wrap;
+}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.18rem;letter-spacing:.5px}
+.logo .mark{
+  width:38px;height:38px;border-radius:10px;
+  background:linear-gradient(145deg,#12414a,#0b1f2a);
+  display:grid;place-items:center;border:1px solid #1f5c60;
+}
+nav.main ul{display:flex;gap:6px;list-style:none;flex-wrap:wrap}
+nav.main a{
+  display:block;padding:7px 13px;border-radius:999px;
+  font-size:.93rem;color:#cfe4e2;transition:.2s;
+}
+nav.main a:hover,nav.main a:focus-visible{background:#16424b;color:#fff}
+.btn-enter{
+  background:var(--teal-bright);color:#06282b;font-weight:700;
+  padding:9px 20px;border-radius:999px;font-size:.94rem;
+  box-shadow:0 6px 18px rgba(52,209,198,.25);
+}
+.btn-enter:hover{background:#5ee0d5}
+
+/* 首屏 */
+.hero{
+  background:radial-gradient(1200px 420px at 85% -10%,#12505a 0%,transparent 60%),var(--ink);
+  color:#eaf5f3;
+  padding:64px 0 72px;
+  position:relative;overflow:hidden;
+}
+.hero::after{
+  content:"";position:absolute;right:-90px;bottom:-120px;
+  width:340px;height:340px;border-radius:50%;
+  background:radial-gradient(circle,rgba(52,209,198,.22),transparent 68%);
+}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center;position:relative;z-index:2}
+.hero h1{
+  font-size:clamp(2rem,4.6vw,3.1rem);
+  line-height:1.22;letter-spacing:1px;font-weight:900;
+}
+.hero h1 em{font-style:normal;color:var(--sun)}
+.hero .lead{margin-top:18px;color:#b9d6d3;font-size:1.02rem;max-width:34em}
+.hero .lead strong{color:#fff;font-weight:700}
+.hero-actions{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
+.cta-primary{
+  background:var(--sun);color:#3a2a00;font-weight:800;
+  padding:12px 26px;border-radius:10px;font-size:1rem;
+}
+.cta-primary:hover{background:#ffe08a}
+.cta-ghost{
+  border:1px solid #3f7b80;color:#d5efec;padding:12px 24px;border-radius:10px;font-size:1rem;
+}
+.cta-ghost:hover{background:#123b42}
+.hero-art{
+  background:linear-gradient(160deg,#0f3b44,#0a1c25);
+  border:1px solid #1d5560;border-radius:18px;padding:20px;
+}
+.hero-art .cap{font-size:.8rem;color:#7fb7b4;letter-spacing:2px;margin-bottom:12px}
+.tile-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.tile{
+  aspect-ratio:3/4;border-radius:10px;
+  background:linear-gradient(160deg,#17545c,#0d2a33);
+  border:1px solid #21636b;position:relative;overflow:hidden;
+}
+.tile::before{
+  content:"";position:absolute;inset:auto 10px 10px 10px;height:6px;border-radius:3px;
+  background:rgba(52,209,198,.55);
+}
+.tile:nth-child(2)::before{width:60%;background:rgba(255,209,102,.6)}
+.tile:nth-child(3)::before{width:40%}
+.tile span{
+  position:absolute;top:10px;left:10px;font-size:.72rem;color:#9fd6d1;letter-spacing:1px;
+}
+
+/* 通用区块 */
+section.block{padding:56px 0}
+.sec-head{margin-bottom:26px;display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.sec-head h2{font-size:1.5rem;letter-spacing:.5px;position:relative;padding-left:14px}
+.sec-head h2::before{
+  content:"";position:absolute;left:0;top:.35em;bottom:.35em;width:5px;border-radius:3px;
+  background:var(--teal);
+}
+.sec-head p{color:var(--ink-soft);font-size:.93rem;max-width:32em}
+
+/* 分类导航 */
+.cats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.cat{
+  background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:20px 18px;transition:.2s;
+}
+.cat:hover{border-color:var(--teal);transform:translateY(-3px);box-shadow:0 10px 22px rgba(11,31,42,.07)}
+.cat .ico{width:36px;height:36px;margin-bottom:10px;color:var(--teal)}
+.cat h3{font-size:1.02rem;margin-bottom:4px}
+.cat p{font-size:.86rem;color:var(--ink-soft)}
+
+/* 精选内容 */
+.feature-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:18px}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;
+}
+.card .thumb{
+  height:190px;background:linear-gradient(150deg,#0f3b44,#17545c);
+  display:flex;align-items:flex-end;padding:16px;position:relative;
+}
+.card .thumb .tag{
+  background:rgba(255,209,102,.92);color:#3a2a00;font-size:.74rem;font-weight:700;
+  padding:3px 10px;border-radius:999px;position:absolute;top:14px;left:14px;
+}
+.card .thumb .dur{
+  position:absolute;top:14px;right:14px;font-size:.74rem;color:#c8e8e4;
+  border:1px solid #3f7b80;border-radius:6px;padding:2px 8px;
+}
+.card .thumb .nm{color:#eaf5f3;font-weight:800;font-size:1.14rem;letter-spacing:.5px}
+.card .body{padding:16px 18px}
+.card .body p{font-size:.9rem;color:var(--ink-soft)}
+.side-stack{display:grid;gap:14px}
+.mini{
+  background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:15px 16px;display:flex;gap:12px;align-items:flex-start;
+}
+.mini .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);margin-top:9px;flex:none}
+.mini h4{font-size:.95rem;margin-bottom:2px}
+.mini span{font-size:.82rem;color:var(--ink-soft)}
+
+/* 观看路径 */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.step{
+  background:#fff;border:1px solid var(--line);border-left:4px solid var(--teal-bright);
+  border-radius:12px;padding:20px;
+}
+.step b{display:block;font-size:.8rem;color:var(--teal);letter-spacing:2px;margin-bottom:6px}
+.step h3{font-size:1.02rem;margin-bottom:6px}
+.step p{font-size:.88rem;color:var(--ink-soft)}
+
+/* 说明正文 */
+.about{
+  background:#fff;border:1px solid var(--line);border-radius:18px;
+  padding:32px 34px;
+}
+.about h2{font-size:1.4rem;margin-bottom:14px;padding-left:14px;position:relative}
+.about h2::before{
+  content:"";position:absolute;left:0;top:.35em;bottom:.35em;width:5px;border-radius:3px;background:var(--teal);
+}
+.about p{font-size:.96rem;color:#334a56;margin-bottom:14px;max-width:46em}
+.about p:last-child{margin-bottom:0}
+.about strong{color:var(--ink)}
+
+/* FAQ */
+.faq{display:grid;gap:12px}
+details{
+  background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 20px;
+}
+details summary{
+  cursor:pointer;font-weight:700;font-size:.98rem;list-style:none;
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
+}
+details summary::-webkit-details-marker{display:none}
+details summary::after{content:"+";color:var(--teal);font-size:1.2rem;font-weight:400}
+details[open] summary::after{content:"–"}
+details p{margin-top:10px;font-size:.9rem;color:var(--ink-soft)}
+
+/* 下载/入口条 */
+.band{
+  background:linear-gradient(120deg,#0b1f2a,#12414a);
+  color:#eaf5f3;border-radius:18px;padding:32px 34px;
+  display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;
+}
+.band h2{font-size:1.35rem;margin-bottom:6px}
+.band p{font-size:.9rem;color:#a9cfcb;max-width:34em}
+.band-actions{display:flex;gap:12px;flex-wrap:wrap}
+.dl-btn{
+  background:var(--teal-bright);color:#06282b;font-weight:800;
+  padding:12px 28px;border-radius:10px;font-size:.98rem;
+  pointer-events:none;opacity:.95;
+}
+.dl-btn[aria-disabled="true"]{cursor:default}
+.band .sub{
+  border:1px solid #3f7b80;color:#d5efec;padding:12px 22px;border-radius:10px;font-size:.95rem;
+}
+.band .sub:hover{background:#123b42}
+
+/* 页尾 */
+footer.site{
+  background:var(--ink);color:#9dbcb9;margin-top:20px;padding:38px 0 26px;font-size:.88rem;
+}
+.foot-top{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;padding-bottom:22px;border-bottom:1px solid #1c4148}
+.foot-brand{display:flex;align-items:center;gap:10px;color:#e8f4f2;font-weight:800;font-size:1.05rem}
+.foot-links{display:flex;gap:18px;flex-wrap:wrap}
+.foot-links a:hover{color:var(--teal-bright)}
+.foot-bottom{padding-top:18px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:.8rem;color:#6e9591}
+
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:32px}
+  .cats{grid-template-columns:repeat(2,1fr)}
+  .feature-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .hero{padding:44px 0 52px}
+  .header-inner{padding:12px 0;gap:10px}
+  nav.main ul{gap:2px}
+  nav.main a{padding:6px 9px;font-size:.86rem}
+  .btn-enter{padding:8px 15px;font-size:.86rem}
+  section.block{padding:40px 0}
+  .cats{grid-template-columns:1fr}
+  .about{padding:24px 20px}
+  .band{padding:24px 20px}
+  .logo{font-size:1.05rem}
+}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap header-inner">
+    <a class="logo" href="#top" aria-label="海角免费 首页">
+      <span class="mark" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <path d="M3 17c3.5-7 14.5-7 18 0" stroke="#34d1c6" stroke-width="2.4" stroke-linecap="round"/>
+          <circle cx="12" cy="8" r="2.8" fill="#ffd166"/>
+        </svg>
+      </span>
+      海角免费
+    </a>
+    <nav class="main" aria-label="主导航">
+      <ul>
+        <li><a href="#cats">内容分类</a></li>
+        <li><a href="#picks">精选推荐</a></li>
+        <li><a href="#howto">观看路径</a></li>
+        <li><a href="#about">使用说明</a></li>
+        <li><a href="#faq">常见问题</a></li>
+      </ul>
+    </nav>
+    <a class="btn-enter" href="#picks">进入内容</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 首屏 -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>海角免费</h1>
+        <p class="lead">这里是<strong>海角免费</strong>的主题首页，把分散的视频内容按题材、时长与热度重新整理，让找片这件事变得直接。你可以先看分类壳，再进入精选条目，最后回到说明区确认使用方式，全程不需要多余跳转。</p>
+        <div class="hero-actions">
+          <a class="cta-primary" href="#picks">浏览精选内容</a>
+          <a class="cta-ghost" href="#howto">查看观看路径</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="cap">内容版面预览</div>
+        <div class="tile-row">
+          <div class="tile"><span>剧情</span></div>
+          <div class="tile"><span>纪实</span></div>
+          <div class="tile"><span>短片</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 分类 -->
+  <section class="block" id="cats">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>按方向找内容</h2>
+        <p>海角免费把常见观看需求拆成四类，先定方向再看具体条目，比翻列表更省时间。</p>
+      </div>
+      <div class="cats">
+        <a class="cat" href="#picks">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9.5v5l4-2.5z"/></svg>
+          <h3>剧情长片</h3>
+          <p>完整叙事、片长偏长，适合一次看完。</p>
+        </a>
+        <a class="cat" href="#picks">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 17c3-9 13-9 16 0"/><circle cx="12" cy="7" r="2.4"/></svg>
+          <h3>纪实纪录</h3>
+          <p>真实题材与城市观察，节奏平稳。</p>
+        </a>
+        <a class="cat" href="#picks">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 4h14v16H5z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg>
+          <h3>短片合集</h3>
+          <p>十分钟上下，适合碎片时间浏览。</p>
+        </a>
+        <a class="cat" href="#picks">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/></svg>
+          <h3>近期更新</h3>
+          <p>按时间顺序排列的新增条目入口。</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 精选 -->
+  <section class="block" id="picks">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>本期精选条目</h2>
+        <p>每条只写清它能提供什么，不做夸大的承诺；标题、类型与时长是读者判断的主要依据。</p>
+      </div>
+      <div class="feature-grid">
+        <article class="card">
+          <div class="thumb">
+            <span class="tag">编辑推荐</span>
+            <span class="dur">约 90 分钟</span>
+            <div class="nm">海边小镇的三个夏天</div>
+          </div>
+          <div class="body">
+            <p>以固定机位记录一座海边小镇三年的变化，画面以自然光为主。适合想一次看完完整叙事的观众，在海角免费的分类页中归入剧情长片一栏。</p>
+          </div>
+        </article>
+        <div class="side-stack">
+          <div class="mini">
+            <span class="dot" aria-hidden="true"></span>
+            <div><h4>城市夜行记录</h4><span>纪实 · 约 40 分钟 · 节奏平稳</span></div>
+          </div>
+          <div class="mini">
+            <span class="dot" aria-hidden="true"></span>
+            <div><h4>十分钟海风</h4><span>短片 · 约 10 分钟 · 画面干净</span></div>
+          </div>
+          <div class="mini">
+            <span class="dot" aria-hidden="true"></span>
+            <div><h4>渔港清晨</h4><span>纪实 · 约 25 分钟 · 同期声</span></div>
+          </div>
+          <div class="mini">
+            <span class="dot" aria-hidden="true"></span>
+            <div><h4>旧码头手记</h4><span>剧情 · 约 70 分钟 · 叙事完整</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 观看路径 -->
+  <section class="block" id="howto">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>三步看完一条内容</h2>
+        <p>流程按页面实际结构设计，不依赖额外账号或插件，按顺序操作即可。</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <b>01</b>
+          <h3>先选方向</h3>
+          <p>在上方分类中确定长片、纪录还是短片，缩小范围后再进入条目列表。</p>
+        </div>
+        <div class="step">
+          <b>02</b>
+          <h3>核对条目信息</h3>
+          <p>看标题、类型与时长三项，确认它符合你当下的时间安排，再决定是否打开。</p>
+        </div>
+        <div class="step">
+          <b>03</b>
+          <h3>回到说明确认</h3>
+          <p>遇到疑问时回看使用说明与常见问题，海角免费页面内已把常见情况写清楚。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 说明 -->
+  <section class="block" id="about">
+    <div class="wrap about">
+      <h2>关于海角免费</h2>
+      <p><strong>海角免费</strong>的定位是一个内容导航与观看入口页面，而不是内容仓库本身。它做的工作是把题材相近的视频整理到同一栏下，并用标题、类型、时长三个字段把基本信息交代清楚，减少反复试看的时间。</p>
+      <p>分类页与精选区是两条不同的路径：分类适合还没有明确目标、想先看看有什么的读者；精选区适合已经知道大概方向、只想快速挑一条的读者。两者指向同一批内容，但阅读成本不同，你可以按自己的状态选择入口。</p>
+      <p>页面中的所有条目描述都停留在“能提供什么”的层面，不夸大画质、不对内容质量下结论。判断权利留给读者：先看字段，再看是否打开。对于时间有限的访问者，建议先看短片合集一栏，再决定是否进入长片。</p>
+      <p>如果你只记住了<strong>海角免费</strong>这一个入口，也足够完成一次访问：首屏给出方向，分类给出结构，精选给出候选，说明区给出解释。这套顺序在手机与桌面上保持一致，只是栏目的排列方式会随屏幕宽度调整。</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="block" id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>常见问题</h2>
+        <p>以下回答只针对本页面的实际结构与功能，不涉及页面之外的服务。</p>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>海角免费需要注册吗？</summary>
+          <p>当前页面为浏览型首页，阅读分类与条目信息不需要注册，也没有账号体系。所有内容说明直接呈现在静态页面中。</p>
+        </details>
+        <details>
+          <summary>条目信息为什么只写类型和时长？</summary>
+          <p>这两项是判断“现在适不适合看”最直接的依据，且不涉及对内容质量的评价。页面避免用难以验证的描述替代可核对的信息。</p>
+        </details>
+        <details>
+          <summary>分类和精选区有什么区别？</summary>
+          <p>分类按方向归类，适合没有明确目标时浏览；精选按当期条目呈现，适合已有大致偏好时快速挑选。二者信息互相补充。</p>
+        </details>
+        <details>
+          <summary>页面在手机上能正常阅读吗？</summary>
+          <p>布局会随屏幕宽度调整，导航、分类卡片与正文行长都针对小屏做过处理，纵向阅读顺序与桌面端一致。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 下载/入口条 -->
+  <section class="block">
+    <div class="wrap">
+      <div class="band">
+        <div>
+          <h2>把入口留在手边</h2>
+          <p>下载按钮为后续资源位预留，当前尚未开放；你也可以直接使用下方链接回到本页分类区，继续浏览海角免费的内容结构。</p>
+        </div>
+        <div class="band-actions">
+          <a class="dl-btn" href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1">下载</a>
+          <a class="sub" href="#cats">回到分类</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M3 17c3.5-7 14.5-7 18 0" stroke="#34d1c6" stroke-width="2.4" stroke-linecap="round"/>
+          <circle cx="12" cy="8" r="2.8" fill="#ffd166"/>
+        </svg>
+        海角免费
+      </div>
+      <div class="foot-links">
+        <a href="#cats">内容分类</a>
+        <a href="#picks">精选推荐</a>
+        <a href="#howto">观看路径</a>
+        <a href="#about">使用说明</a>
+        <a href="#faq">常见问题</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>海角免费 · 内容导航与观看入口首页</span>
+      <span>页面信息以实际展示为准</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+  </html>
