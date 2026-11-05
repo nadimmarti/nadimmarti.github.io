@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>金牌影院-在线影视观看指南_热门电影与剧集推荐</title>
+<meta name="description" content="金牌影院是一个面向影迷的在线影视观看指南，提供热门电影、剧集、动画与纪录片的分类浏览、搜索筛选和精选片单，帮助你快速找到想看的内容。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2319152b'/%3E%3Cpath d='M20 18h24a4 4 0 0 1 4 4v20a4 4 0 0 1-4 4H20a4 4 0 0 1-4-4V22a4 4 0 0 1 4-4z' fill='none' stroke='%23f5c451' stroke-width='3'/%3E%3Cpath d='M28 26l10 6-10 6z' fill='%23f5c451'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --ink:#19152b;
+    --ink-soft:#3b3455;
+    --muted:#6b6484;
+    --gold:#f5c451;
+    --gold-deep:#d8a529;
+    --rose:#e8618c;
+    --paper:#f7f4ee;
+    --card:#ffffff;
+    --line:#e4dfd4;
+    --radius:16px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  img,svg{display:block;max-width:100%;}
+  .wrap{width:min(1120px,92vw);margin:0 auto;}
+
+  /* ---------- header ---------- */
+  header.site{
+    position:sticky;top:0;z-index:50;
+    background:rgba(25,21,43,.96);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(245,196,81,.18);
+  }
+  .head-inner{
+    display:flex;align-items:center;gap:20px;
+    padding:12px 0;flex-wrap:wrap;
+  }
+  .logo{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+  .logo .mark{
+    width:38px;height:38px;border-radius:11px;
+    background:linear-gradient(140deg,#2a2347,#19152b);
+    display:grid;place-items:center;
+    border:1px solid rgba(245,196,81,.45);
+  }
+  .logo .brand{
+    font-size:19px;font-weight:800;letter-spacing:.06em;
+    color:#fff;
+  }
+  .logo .brand em{color:var(--gold);font-style:normal;}
+  nav.main{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto;}
+  nav.main a{
+    font-size:14px;color:#cfc8e0;padding:7px 12px;border-radius:9px;
+    transition:.2s;
+  }
+  nav.main a:hover,nav.main a:focus-visible{color:#19152b;background:var(--gold);outline:none;}
+  .search-box{
+    display:flex;align-items:center;gap:0;
+    background:#2a2440;border:1px solid #413a5e;border-radius:10px;
+    padding:3px;flex:1 1 220px;max-width:300px;
+  }
+  .search-box input{
+    flex:1;background:none;border:none;outline:none;
+    color:#fff;font-size:14px;padding:6px 10px;font-family:inherit;
+    min-width:0;
+  }
+  .search-box input::placeholder{color:#8b84a6;}
+  .search-box button{
+    background:var(--gold);border:none;border-radius:7px;
+    color:#19152b;font-weight:700;font-size:13px;
+    padding:6px 13px;cursor:pointer;font-family:inherit;
+    transition:.2s;
+  }
+  .search-box button:hover{background:var(--gold-deep);}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;overflow:hidden;
+    background:
+      radial-gradient(900px 460px at 12% -10%,rgba(232,97,140,.30),transparent 62%),
+      radial-gradient(800px 420px at 92% 8%,rgba(245,196,81,.22),transparent 60%),
+      linear-gradient(160deg,#19152b 0%,#241d3d 58%,#2c2249 100%);
+    color:#fff;
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background-image:radial-gradient(rgba(255,255,255,.09) 1px,transparent 1px);
+    background-size:26px 26px;opacity:.5;
+    mask-image:linear-gradient(to bottom,transparent,#000 30%,#000 60%,transparent);
+  }
+  .hero-inner{
+    position:relative;z-index:2;
+    display:grid;grid-template-columns:1.15fr .85fr;
+    gap:44px;align-items:center;
+    padding:64px 0 62px;
+  }
+  .kicker{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:12.5px;letter-spacing:.16em;
+    color:var(--gold);border:1px solid rgba(245,196,81,.4);
+    padding:5px 13px;border-radius:999px;margin-bottom:20px;
+  }
+  .kicker::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);}
+  h1{
+    font-size:clamp(30px,4.6vw,50px);
+    line-height:1.22;letter-spacing:.03em;font-weight:900;
+    margin-bottom:18px;
+  }
+  h1 .hl{
+    background:linear-gradient(180deg,transparent 62%,rgba(245,196,81,.42) 62%);
+  }
+  .hero p.lead{
+    font-size:16px;color:#d6d0e6;max-width:34em;margin-bottom:26px;
+  }
+  .cta-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:15px;font-weight:700;padding:12px 24px;border-radius:11px;
+    transition:.2s;border:1px solid transparent;font-family:inherit;
+  }
+  .btn-gold{background:var(--gold);color:#19152b;}
+  .btn-gold:hover{background:#ffd873;transform:translateY(-1px);}
+  .btn-ghost{border-color:rgba(255,255,255,.3);color:#fff;}
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
+  .hero-stats{
+    display:flex;gap:26px;margin-top:30px;flex-wrap:wrap;
+    border-top:1px solid rgba(255,255,255,.14);padding-top:20px;
+  }
+  .hero-stats div strong{display:block;font-size:22px;color:var(--gold);font-weight:800;letter-spacing:.02em;}
+  .hero-stats div span{font-size:12.5px;color:#a9a2c0;}
+
+  .poster-stack{
+    position:relative;height:340px;
+  }
+  .poster{
+    position:absolute;border-radius:14px;overflow:hidden;
+    border:1px solid rgba(255,255,255,.16);
+    box-shadow:0 22px 44px rgba(0,0,0,.45);
+  }
+  .poster.p1{width:62%;height:82%;left:0;top:0;transform:rotate(-5deg);background:linear-gradient(150deg,#e8618c,#7b3b8d);}
+  .poster.p2{width:58%;height:74%;right:0;top:14%;transform:rotate(5deg);background:linear-gradient(150deg,#f5c451,#c9702b);}
+  .poster.p3{width:48%;height:58%;left:24%;bottom:-4%;transform:rotate(1deg);background:linear-gradient(150deg,#4a7fd4,#2a2f6b);}
+  .poster .cap{
+    position:absolute;left:0;right:0;bottom:0;
+    padding:26px 12px 10px;font-size:13px;font-weight:700;color:#fff;
+    background:linear-gradient(to top,rgba(0,0,0,.62),transparent);
+    letter-spacing:.04em;
+  }
+
+  /* ---------- section base ---------- */
+  section{padding:64px 0;}
+  .sec-head{margin-bottom:32px;max-width:44em;}
+  .sec-tag{
+    font-size:12.5px;letter-spacing:.18em;color:var(--rose);
+    font-weight:700;margin-bottom:10px;display:block;
+  }
+  h2{
+    font-size:clamp(22px,3vw,30px);font-weight:800;letter-spacing:.02em;
+    line-height:1.3;margin-bottom:12px;
+  }
+  .sec-head p{color:var(--muted);font-size:15px;}
+
+  /* ---------- filter / catalog ---------- */
+  .catalog{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px;}
+  .chip{
+    font-size:13.5px;padding:7px 16px;border-radius:999px;
+    border:1px solid var(--line);background:#faf8f3;color:var(--ink-soft);
+    cursor:pointer;font-family:inherit;transition:.2s;
+  }
+  .chip:hover{border-color:var(--gold-deep);}
+  .chip.active{background:var(--ink);border-color:var(--ink);color:#fff;font-weight:700;}
+  .grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+  }
+  .film-card{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    overflow:hidden;display:flex;flex-direction:column;
+    transition:.22s;
+  }
+  .film-card:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(25,21,43,.09);}
+  .thumb{
+    height:132px;position:relative;display:grid;place-items:center;
+    color:#fff;
+  }
+  .thumb svg{width:46px;height:46px;opacity:.92;}
+  .thumb .tag{
+    position:absolute;top:10px;left:10px;
+    font-size:11.5px;font-weight:700;letter-spacing:.05em;
+    background:rgba(25,21,43,.55);backdrop-filter:blur(4px);
+    padding:3px 9px;border-radius:6px;
+  }
+  .thumb .rate{
+    position:absolute;bottom:10px;right:10px;
+    font-size:12px;font-weight:800;color:var(--ink);
+    background:var(--gold);padding:2px 8px;border-radius:6px;
+  }
+  .film-body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:7px;flex:1;}
+  .film-body h3{font-size:16.5px;font-weight:800;letter-spacing:.02em;}
+  .film-body p{font-size:13.5px;color:var(--muted);line-height:1.65;flex:1;}
+  .film-meta{
+    display:flex;justify-content:space-between;align-items:center;
+    font-size:12.5px;color:var(--ink-soft);border-top:1px dashed var(--line);
+    padding-top:10px;margin-top:4px;
+  }
+  .film-meta span:last-child{color:var(--rose);font-weight:700;}
+  .empty-note{
+    display:none;padding:40px 0;text-align:center;color:var(--muted);font-size:14.5px;
+  }
+
+  /* ---------- guide ---------- */
+  .guide-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+  .guide-card{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:26px 26px 24px;
+  }
+  .guide-card .num{
+    font-size:13px;font-weight:800;color:var(--gold-deep);letter-spacing:.1em;
+    margin-bottom:10px;
+  }
+  .guide-card h3{font-size:17px;font-weight:800;margin-bottom:10px;}
+  .guide-card p{font-size:14.5px;color:var(--ink-soft);}
+  .guide-card p + p{margin-top:10px;}
+
+  /* ---------- picks ---------- */
+  .picks{background:var(--ink);color:#fff;}
+  .picks h2{color:#fff;}
+  .picks .sec-tag{color:var(--gold);}
+  .picks .sec-head p{color:#b6afc9;}
+  .pick-list{display:grid;gap:0;border-top:1px solid rgba(255,255,255,.14);}
+  .pick-item{
+    display:grid;grid-template-columns:56px 1fr auto;gap:18px;align-items:center;
+    padding:20px 4px;border-bottom:1px solid rgba(255,255,255,.14);
+  }
+  .pick-item .rank{
+    font-size:22px;font-weight:900;color:transparent;
+    -webkit-text-stroke:1.4px var(--gold);letter-spacing:.02em;
+  }
+  .pick-item h3{font-size:16px;font-weight:800;margin-bottom:3px;}
+  .pick-item p{font-size:13.5px;color:#b6afc9;line-height:1.6;}
+  .pick-item .badge{
+    font-size:12px;font-weight:700;color:#19152b;background:var(--gold);
+    padding:4px 11px;border-radius:6px;white-space:nowrap;
+  }
+
+  /* ---------- faq ---------- */
+  .faq-list{display:grid;gap:14px;max-width:52em;}
+  details{
+    background:#fff;border:1px solid var(--line);border-radius:12px;
+    padding:16px 20px;
+  }
+  details[open]{border-color:var(--gold-deep);}
+  summary{
+    font-size:15.5px;font-weight:700;cursor:pointer;list-style:none;
+    display:flex;justify-content:space-between;gap:14px;align-items:center;
+  }
+  summary::-webkit-details-marker{display:none;}
+  summary::after{content:"+";color:var(--gold-deep);font-size:20px;font-weight:700;line-height:1;}
+  details[open] summary::after{content:"–";}
+  details p{font-size:14px;color:var(--muted);margin-top:11px;padding-top:11px;border-top:1px dashed var(--line);}
+
+  /* ---------- download strip ---------- */
+  .strip{
+    background:linear-gradient(135deg,#f5c451,#e8a53c);
+    color:#19152b;border-radius:var(--radius);
+    padding:32px 34px;display:flex;gap:24px;align-items:center;justify-content:space-between;flex-wrap:wrap;
+  }
+  .strip h2{font-size:22px;margin-bottom:6px;}
+  .strip p{font-size:14px;color:#4a3a12;max-width:38em;}
+  .btn-dark{background:#19152b;color:#fff;}
+  .btn-dark[aria-disabled="true"]{opacity:.85;cursor:not-allowed;pointer-events:none;}
+
+  /* ---------- footer ---------- */
+  footer.site{
+    background:#141021;color:#a9a2c0;padding:44px 0 30px;margin-top:64px;
+    font-size:13.5px;
+  }
+  .foot-top{display:flex;justify-content:space-between;gap:26px;flex-wrap:wrap;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,.1);}
+  .foot-brand{max-width:32em;}
+  .foot-brand .brand{font-size:17px;font-weight:800;color:#fff;margin-bottom:10px;letter-spacing:.06em;}
+  .foot-brand .brand em{color:var(--gold);font-style:normal;}
+  .foot-nav{display:flex;gap:26px;flex-wrap:wrap;}
+  .foot-nav a:hover{color:var(--gold);}
+  .foot-bottom{padding-top:20px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:12.5px;color:#7d7694;}
+
+  /* ---------- responsive ---------- */
+  @media(max-width:900px){
+    .hero-inner{grid-template-columns:1fr;gap:34px;padding:46px 0 50px;}
+    .poster-stack{height:240px;max-width:400px;}
+    .grid{grid-template-columns:repeat(2,1fr);}
+    .guide-grid{grid-template-columns:1fr;}
+  }
+  @media(max-width:640px){
+    .head-inner{padding:10px 0;gap:12px;}
+    .logo .brand{font-size:16.5px;}
+    nav.main{order:3;width:100%;margin-left:0;justify-content:space-between;gap:2px;}
+    nav.main a{font-size:13px;padding:6px 7px;}
+    .search-box{max-width:none;flex:1 1 auto;order:2;}
+    section{padding:46px 0;}
+    .grid{grid-template-columns:1fr;}
+    .poster-stack{height:210px;}
+    .pick-item{grid-template-columns:40px 1fr;gap:12px;}
+    .pick-item .badge{grid-column:2;justify-self:start;}
+    .hero-stats{gap:18px;}
+    .strip{padding:24px 22px;}
+  }
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap head-inner">
+    <a class="logo" href="#top" aria-label="金牌影院首页">
+      <span class="mark" aria-hidden="true">
+        <svg viewBox="0 0 64 64" width="22" height="22" role="img">
+          <rect x="10" y="14" width="44" height="36" rx="6" fill="none" stroke="#f5c451" stroke-width="3.4"/>
+          <path d="M28 25l11 7-11 7z" fill="#f5c451"/>
+        </svg>
+      </span>
+      <span class="brand">金牌<em>影院</em></span>
+    </a>
+
+    <form class="search-box" id="searchForm" role="search">
+      <input type="search" id="searchInput" placeholder="搜索片名或类型" aria-label="搜索片名或类型">
+      <button type="submit">搜索</button>
+    </form>
+
+    <nav class="main" aria-label="主导航">
+      <a href="#catalog">片库</a>
+      <a href="#guide">观看指南</a>
+      <a href="#picks">本周精选</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="h1-title">
+    <div class="wrap hero-inner">
+      <div>
+        <span class="kicker">在线影视观看指南</span>
+        <h1 id="h1-title"><span class="hl">金牌影院</span></h1>
+        <p class="lead">金牌影院把热门电影、连载剧集、动画与纪录片放在同一个入口里。先按类型和题材缩小范围，再看片单与观看指南，最后决定今晚看什么——整个过程不需要在多个页面之间来回跳转。</p>
+        <div class="cta-row">
+          <a class="btn btn-gold" href="#catalog">进入片库浏览
+            <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#picks">看本周精选</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>8 类</strong><span>题材分区</span></div>
+          <div><strong>24 部</strong><span>本期片单</span></div>
+          <div><strong>4 步</strong><span>选片流程</span></div>
+        </div>
+      </div>
+
+      <div class="poster-stack" aria-hidden="true">
+        <div class="poster p1"><span class="cap">剧情 / 悬疑</span></div>
+        <div class="poster p2"><span class="cap">动作 / 冒险</span></div>
+        <div class="poster p3"><span class="cap">动画 / 合家欢</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATALOG -->
+  <section class="catalog" id="catalog">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-tag">片库分区</span>
+        <h2>先按题材筛，再逐部看简介</h2>
+        <p>下方片单按题材归类，每张卡片保留类型、时长与一句话看点。点选标签即可筛选，也可以直接在上方搜索框输入片名。金牌影院的片单只收录有明确类型与简介的条目，方便你快速判断是否合口味。</p>
+      </div>
+
+      <div class="filters" role="group" aria-label="题材筛选">
+        <button class="chip active" data-filter="all">全部</button>
+        <button class="chip" data-filter="剧情">剧情</button>
+        <button class="chip" data-filter="动作">动作</button>
+        <button class="chip" data-filter="悬疑">悬疑</button>
+        <button class="chip" data-filter="动画">动画</button>
+        <button class="chip" data-filter="纪录">纪录</button>
+        <button class="chip" data-filter="剧集">剧集</button>
+      </div>
+
+      <div class="grid" id="filmGrid">
+
+        <article class="film-card" data-cat="剧情" data-name="春潮之下">
+          <div class="thumb" style="background:linear-gradient(140deg,#e8618c,#7b3b8d)">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h13" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <span class="tag">剧情</span><span class="rate">8.4</span>
+          </div>
+          <div class="film-body">
+            <h3>春潮之下</h3>
+            <p>一座临海小城的三个家庭，在一年之内经历搬迁与和解，叙事克制，适合安静地一次看完。</p>
+            <div class="film-meta"><span>剧情 · 118 分钟</span><span>口碑佳作</span></div>
+          </div>
+        </article>
+
+        <article class="film-card" data-cat="动作" data-name="疾风航线">
+          <div class="thumb" style="background:linear-gradient(140deg,#f5c451,#c9702b)">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l18-6-18-6 3 6-3 6z" fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/></svg>
+            <span class="tag">动作</span><span class="rate">8.1</span>
+          </div>
+          <div class="film-body">
+            <h3>疾风航线</h3>
+            <p>民航机组的应急训练与真实险情交织，节奏紧凑，动作戏集中在后半段，适合追求爽感的观众。</p>
+            <div class="film-meta"><span>动作 · 126 分钟</span><span>院线热映</span></div>
+          </div>
+        </article>
+
+        <article class="film-card" data-cat="悬疑" data-name="第七封来信">
+          <div class="thumb" style="background:linear-gradient(140deg,#4a7fd4,#2a2f6b)">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2" fill="none" stroke="#fff" stroke-width="1.8"/><path d="M3 8l9 6 9-6" fill="none" stroke="#fff" stroke-width="1.8"/></svg>
+            <span class="tag">悬疑</span><span class="rate">8.7</span>
+          </div>
+          <div class="film-body">
+            <h3>第七封来信</h3>
+            <p>旧公寓里陆续出现的匿名信，把一桩十年前的旧案重新翻开，线索埋在细节里，适合边看边记。</p>
+            <div class="film-meta"><span>悬疑 · 112 分钟</span><span>高分推荐</span></div>
+          </div>
+        </article>
+
+        <article class="film-card" data-cat="动画" data-name="云上的小镇">
+          <div class="thumb" style="background:linear-gradient(140deg,#5fc1a8,#2c6f7a)">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17a4 4 0 0 1 .6-7.96 5 5 0 0 1 9.6 1.1A3.5 3.5 0 0 1 17 17H7z" fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/></svg>
+            <span class="tag">动画</span><span class="rate">8.3</span>
+          </div>
+          <div class="film-body">
+            <h3>云上的小镇</h3>
+            <p>手绘质感的合家欢动画，讲一座会飘的小镇和它的居民，画面温柔，适合全家一起看。</p>
+            <div class="film-meta"><span>动画 · 96 分钟</span><span>亲子首选</span></div>
+          </div>
+        </article>
+
+        <article class="film-card" data-cat="纪录" data-name="海面以下">
+          <div class="thumb" style="background:linear-gradient(140deg,#3f7fbf,#173a5e)">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12c3-4 6-4 9 0s6 4 9 0" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><path d="M3 17c3-4 6-4 9 0s6 4 9 0" fill="none" stroke="#fff" stroke-width="1.4" stroke-linecap="round" opacity=".7"/></svg>
+            <span class="tag">纪录</span><span class="rate">8.9</span>
+          </div>
+          <div class="film-body">
+            <h3>海面以下</h3>
+            <p>跟随海洋研究团队下潜三个月，记录珊瑚带的变化。信息密度高，建议分段观看并配合笔记。</p>
+            <div class="film-meta"><span>纪录 · 4 集</span><span>深度内容</span></div>
+          </div>
+        </article>
+
+        <article class="film-card" data-cat="剧集" data-name="长夜灯塔">
+          <div class="thumb" style="background:linear-gradient(140deg,#8a6ad4,#3a2a6b)">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M5 10l7-7 7 7" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="tag">剧集</span><span class="rate">8.5</span>
+          </div>
+          <div class="film-body">
+            <h3>长夜灯塔</h3>
+            <p>共 12 集的群像剧，围绕一座灯塔的守塔人展开，每两集换一个视角，适合每周追更。</p>
+            <div class="film-meta"><span>剧集 · 12 集</span><span>连载中</span></div>
+          </div>
+        </article>
+
+      </div>
+
+      <p class="empty-note" id="emptyNote">没有找到匹配的片目，换个题材或缩短搜索词再试一次。</p>
+    </div>
+  </section>
+
+  <!-- GUIDE -->
+  <section id="guide">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-tag">观看指南</span>
+        <h2>四步选片法，减少翻找时间</h2>
+        <p>片库条目多的时候，最费时间的不是看，而是挑。金牌影院建议按下面的顺序决策，每一步都只回答一个问题，避免在同一层反复比较。</p>
+      </div>
+
+      <div class="guide-grid">
+        <article class="guide-card">
+          <div class="num">STEP 01</div>
+          <h3>先定时长</h3>
+          <p>工作日晚上优先选 100 分钟以内的单片，周末再安排剧集连看。时长直接决定你能不能一次看完，先砍掉不合适的时长区间，选项会少掉一大半。</p>
+        </article>
+        <article class="guide-card">
+          <div class="num">STEP 02</div>
+          <h3>再定情绪</h3>
+          <p>想放松就看动画与合家欢，想投入就看悬疑与纪录。情绪匹配比评分更影响观感，评分只作为同类型内部的横向参考。</p>
+        </article>
+        <article class="guide-card">
+          <div class="num">STEP 03</div>
+          <h3>读一句话看点</h3>
+          <p>每张卡片的一句话看点写明了叙事重心和适合人群。看完仍不确定，就说明这部片子不是当下最优选，直接换下一部。</p>
+        </article>
+        <article class="guide-card">
+          <div class="num">STEP 04</div>
+          <h3>记录与回顾</h3>
+          <p>看完在片单里标记一次，积累两三周后就能看出自己的口味偏向。金牌影院的片单结构就是为这种回顾习惯准备的。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PICKS -->
+  <section class="picks" id="picks">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-tag">本周精选</span>
+        <h2>编辑按题材挑出的四部</h2>
+        <p>精选不是评分排行榜，而是按“这一周适合看什么”挑出的组合，覆盖不同时长与情绪，尽量让每个晚上都有对应的选项。</p>
+      </div>
+
+      <div class="pick-list">
+        <div class="pick-item">
+          <div class="rank">01</div>
+          <div>
+            <h3>第七封来信 · 悬疑</h3>
+            <p>适合整块时间观看，线索密集，中途暂停容易断掉推理节奏。</p>
+          </div>
+          <span class="badge">高分推荐</span>
+        </div>
+        <div class="pick-item">
+          <div class="rank">02</div>
+          <div>
+            <h3>云上的小镇 · 动画</h3>
+            <p>96 分钟，节奏平缓，是本周最适合家庭共看的一部。</p>
+          </div>
+          <span class="badge">亲子首选</span>
+        </div>
+        <div class="pick-item">
+          <div class="rank">03</div>
+          <div>
+            <h3>海面以下 · 纪录</h3>
+            <p>四集结构清晰，可以按集拆分到不同晚上，信息密度高但不赶。</p>
+          </div>
+          <span class="badge">深度内容</span>
+        </div>
+        <div class="pick-item">
+          <div class="rank">04</div>
+          <div>
+            <h3>疾风航线 · 动作</h3>
+            <p>想放松又想要爽感时的稳妥选择，后半段动作戏集中。</p>
+          </div>
+          <span class="badge">院线热映</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-tag">常见问题</span>
+        <h2>关于金牌影院的几个说明</h2>
+        <p>以下回答只针对本页提供的浏览与筛选功能，不涉及任何播放或账号服务。</p>
+      </div>
+
+      <div class="faq-list">
+        <details open>
+          <summary>金牌影院的片单是怎么组织的？</summary>
+          <p>按题材分为剧情、动作、悬疑、动画、纪录、剧集六类，每部片子标注类型、时长和一句话看点。片单随更新调整，具体条目以页面当前显示为准。</p>
+        </details>
+        <details>
+          <summary>搜索和筛选能一起用吗？</summary>
+          <p>可以。先点题材标签缩小范围，再在上方搜索框输入片名关键词，两者会同时生效；清空搜索框或点“全部”即可恢复完整列表。</p>
+        </details>
+        <details>
+          <summary>为什么有的片子只写了集数？</summary>
+          <p>剧集和纪录片按集组织，单集时长不固定，因此卡片上标注总集数而不是总分钟数，方便你按周安排追更节奏。</p>
+        </details>
+        <details>
+          <summary>页面上的评分代表什么？</summary>
+          <p>评分是片单内部用于同类型横向比较的参考值，不是全网通用榜单。选片时建议先看类型与看点，再看评分。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOWNLOAD STRIP -->
+  <section style="padding-top:0;">
+    <div class="wrap">
+      <div class="strip">
+        <div>
+          <h2>把本周片单存到本地</h2>
+          <p>下载包含片名、类型、时长与一句话看点的离线清单，方便在没网的时候继续挑选。清单每周整理一次，与页面片单保持同步。</p>
+        </div>
+        <a class="btn btn-dark" href="#" download data-download-placeholder="true" aria-disabled="true" tabindex="-1">下载</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="brand">金牌<em>影院</em></div>
+        <p>金牌影院是一个影视观看指南页面，提供按题材分类的片单、搜索筛选与选片方法，帮助影迷更快决定看什么。本页不提供播放服务，片单与评分仅作站内参考。</p>
+      </div>
+      <nav class="foot-nav" aria-label="页尾导航">
+        <a href="#catalog">片库</a>
+        <a href="#guide">观看指南</a>
+        <a href="#picks">本周精选</a>
+        <a href="#faq">常见问题</a>
+        <a href="#top">回到顶部</a>
+      </nav>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2025 金牌影院 · 影视观看指南</span>
+      <span>片单内容随更新调整，以页面显示为准</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var chips = document.querySelectorAll('.chip');
+    var cards = document.querySelectorAll('.film-card');
+    var input = document.getElementById('searchInput');
+    var form = document.getElementById('searchForm');
+    var empty = document.getElementById('emptyNote');
+    var current = 'all';
+
+    function apply(){
+      var q = (input.value || '').trim().toLowerCase();
+      var shown = 0;
+      cards.forEach(function(card){
+        var cat = card.getAttribute('data-cat');
+        var name = (card.getAttribute('data-name') || '').toLowerCase();
+        var okCat = (current === 'all') || (cat === current);
+        var okQ = !q || name.indexOf(q) !== -1 || cat.toLowerCase().indexOf(q) !== -1;
+        var ok = okCat && okQ;
+        card.style.display = ok ? '' : 'none';
+        if(ok) shown++;
+      });
+      empty.style.display = shown ? 'none' : 'block';
+    }
+
+    chips.forEach(function(chip){
+      chip.addEventListener('click', function(){
+        chips.forEach(function(c){ c.classList.remove('active'); });
+        chip.classList.add('active');
+        current = chip.getAttribute('data-filter');
+        apply();
+      });
+    });
+
+    input.addEventListener('input', apply);
+    form.addEventListener('submit', function(e){ e.preventDefault(); apply(); });
+  })();
+</script>
+
+</body>
+</html>
